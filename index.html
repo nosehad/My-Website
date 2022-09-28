@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html id="html">
 	<head>
 		<title>nosehad.com</title>
 		<meta charset="utf-8" />
@@ -36,7 +36,7 @@
 		<section id="about">   
 			<div id="aboutc" class="container" style="justify-items: center; text-align: center; margin-top: 100px; max-width: 400px;">
 				<h1 style="font-weight: 600;">About me</h1>
-				<p style="font-size: 20px;">Hi. My name is Noah I'am a self taught Fullstack Developer from a town near Stuttgart, Germany. After almost three years of developing projects my main focus is on creating an leight weight, fast and stable backend while also designing an clean and userfriendly front end.</p>        
+				<p style="font-size: 20px;">Hey! My name is Noah Nagel. I come from Germany and go to school there. During the Corona Pandemic I started programming with Minecraft Java Mods. I like to call myself a performance developer because the most important aspect in all my projects is the best possible performance. To achieve this I don't use unnecessary libraries and work on my code until it's fast.</p>        
 			</div>
 		</section>
 		<section id="skills">
@@ -99,6 +99,32 @@
 			</div>
 		</section>
 		<section id="projects">
+			<div id="projectsc" class="container" style="justify-items: center; text-align: center; margin-top: 100px; max-width: 600px;">
+				<h1>My Projects</h1>
+				<p>Here and on my <a href="https://github.com/nosehad?tab=repositories">Github Account</a> you can find various of my projects. Here I divided between Web Projects which are usually purely Frontend and Backend projects, which usually don't have an UI and are programmed in languages like Java or Python.</p>
+				<div class="n-carousel" id="projects">
+					<section class="n-carousel-card" id="backend">
+						<h1 class="n-carousel-title">Backend Projects</h1>
+						<img width=600 class="n-carousel-image" src="code.jpg">
+						<p>Photo by Markus Spiske on Unsplash</p>
+						<a onclick="carousel()">
+							<svg class="n-carousel-arr-right" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+								<path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+							</svg>
+						</a>
+					</section>
+					<section class="n-carousel-card" id="web">
+						<h1 class="n-carousel-title">Web Projects</h1>
+						<img width=600 class="n-carousel-image" src="web.jpg">
+						<p>Photo by NASA on Unsplash</p>
+						<a onclick="carousel()">
+							<svg class="n-carousel-arr-left" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+								<path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+							</svg>
+						</a>
+					</section>
+				</div>
+			</div>
 		</section>
 		<section id="contact">   
 			<div id="homec" class="container" style="text-align: left; margin-top: 100px; max-width: 960px;">
@@ -125,6 +151,7 @@
 			</div>
 		</section> 
 		<script src="bootstrap.min.js"></script>
+		<script src="carousel.js"></script>
 		<script src="index.js"></script>
 	</body>
 </html>

@@ -27,6 +27,7 @@ init();
 
 function init()
 {
+
     if(window.location.href.endsWith('home'))
     {
         set_p(0, true);
@@ -39,11 +40,11 @@ function init()
     {
         set_p(2, true);
     }
-    else if(window.location.endsWith('projects'))
+    else if(window.location.href.endsWith('projects'))
     {
         set_p(3, true);
     }
-    else if(window.location.endsWith('contact'))
+    else if(window.location.href.endsWith('contact'))
     {
         set_p(4, true);
     }
@@ -53,7 +54,10 @@ function init()
 }
 
 document.addEventListener('scroll', function(e) {
-    console.log(window.scrollY)
+    if(window.scrollY == previous)
+    {
+        return;
+    }
     if(!scrolling) 
     {
         console.log(1)
@@ -62,7 +66,17 @@ document.addEventListener('scroll', function(e) {
     previous = window.scrollY;
 })
 
-async function d_scroll(down)
+addEventListener('resize', function(e) {
+    sectionHeight = parseInt(document.body.scrollHeight/5);
+    home = 0;
+    about = sectionHeight;
+    skills = sectionHeight*2;
+    projects = sectionHeight*3;
+    contact = sectionHeight*4;
+    this.document.getElementById
+});
+
+function d_scroll(down)
 {
     current = (down && current != 4) ? current +1 : (down && current == 4) ? current : current -1; 
     set_p(current, false);
@@ -74,9 +88,10 @@ async function set_p(page, click)
     {
         return;
     }
+    current = page;
     body.style.overflow = "hidden";
     scrolling = true;
-    switch(page)
+    switch(current)
     {
         case 0:
             setHome();
@@ -223,4 +238,13 @@ function setHome()
         top: home,
         behavior: 'smooth'
       });
+}
+
+function carousel()
+{
+    let backend = document.getElementById('backend');
+    let web = document.getElementById('web')
+    let t = backend.innerHTML;
+    backend.innerHTML = web.innerHTML;
+    web.innerHTML = t;
 }
