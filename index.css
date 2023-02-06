@@ -23,9 +23,17 @@ body {
     position: relative;    
 }
 
+.content
+{
+    max-width: 960px;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
 section
 {
-    height: 110%;
+    height: 100%;
     width: 100%;
     text-align: center;
     overflow: hidden;
@@ -34,41 +42,48 @@ section
 #home
 {
     background-color: #ECC8AF;
+    color: #0A0908;
     z-index: 0;
 }
 
 #about
 {
     background-color: #E7AD99;
+    color: #0A0908;
     z-index: 1;
 }
 
 #skills
 {
     background-color: #CE796B;
+    color: #0A0908;
     z-index: 2;
 }
 
 #projects
 {
     background-color: #C18C5D;
+    color: #0A0908;
     z-index: 3;
 }
 
 #contact
 {
     background-color: #495867;
+    color: #fff;
+    height: 105%;
     z-index: 4;
 }
 
 h1 
 {
-    font-size: 50px;
+    margin: 0px;
+    font-size: 35px;
 }
 
-h2
+strong
 {
-    font-size: 40px;
+    color: #557a4c;
 }
 
 nav
@@ -78,16 +93,71 @@ nav
 
 logo
 {
+    font-size: 28px;
     margin-left:auto;
 }
 
-header
+.head-wrap
 {
-    position: absolute;
-    display: flex;
+    z-index: 5;
+    position: fixed;
     margin: 0 auto;
     /* justify-content: flex-end; */
     left: 0;
     right: 0;
-    width: 70%;
+    width: 95%;
+    max-width: 960px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+header
+{
+    display: flex;
+    padding:20px;
+}
+
+el
+{
+    user-select: none;
+    cursor: pointer;
+    padding: 12px;
+    padding-top: 9px;
+    font-size: 16px;
+    border-radius: 8px;
+    padding-bottom: 9px;
+}
+
+.bounce-arr {
+    animation-name: bounce;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    margin-top: 55px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -webkit-transform: translateY(0);
+      transform: translateY(0); 
+    }
+    40% {
+      -moz-transform: translateY(-30px);
+      -ms-transform: translateY(-30px);
+      -webkit-transform: translateY(-30px);
+      transform: translateY(-30px); 
+    }
+    60% {
+      -moz-transform: translateY(-15px);
+      -ms-transform: translateY(-15px);
+      -webkit-transform: translateY(-15px);
+      transform: translateY(-15px); 
+    } 
 }
