@@ -22,6 +22,8 @@ let currentScroll = 0;
 let oldScroll = 0;
 let direction;
 
+let loaded_section = 0;
+
 // Add event listener for scroll event
 //window.addEventListener('touchmove', () => makeScroll())
 window.addEventListener('scroll', () => makeScroll());
@@ -83,30 +85,6 @@ async function makeScroll()
             break;
     }
     parallax();
-    return;
-    if(scrolling)
-    {
-        parallax();
-        return;
-    }
-    scrolling = true;
-    document.body.style.overflowY = "hidden";
-    if(window.pageYOffset > oldScroll)
-    {
-        currentScroll+=sectionHeight;
-        direction = 1; // down
-    }
-    else
-    {
-        currentScroll-=sectionHeight;
-        direction = 0; // up
-    }
-    oldScroll = currentScroll;
-    scroll(0, currentScroll);
-    setTimeout(() => {
-        scrolling = false;
-        document.body.style.overflowY = "scroll";
-    }, 1000);
 }
 
 let parallax = () => 
@@ -119,36 +97,76 @@ let parallax = () =>
         return;
 }
 
-let load_home = () =>
+let load_home = (silent = false) =>
 {
+    if(loaded_section == 0)
+        return;
+    loaded_section = 0;
+
     clearNavbar();
     homel.style.backgroundColor = "#557a4c";
     homel.style.color = "#ECC8AF";
+
+    setTimeout(() => {
+        if(loaded_section == 0)
+            history.pushState(null, "Home", "?home");
+    },400);
 }
 
-let load_about = () =>
+let load_about = (silent = false) =>
 {
+    if(loaded_section == 1)
+        return;
+    loaded_section = 1;
+
     clearNavbar();
     aboutl.style.backgroundColor = "#557a4c";
     aboutl.style.color = "#E7AD99";
+    
+    setTimeout(() => {
+        if(loaded_section == 1)
+            history.pushState(null, "about Nosehad", "?about");
+    },400);
 }
 
-let load_skills = () =>
+let load_skills = (silent = false) =>
 {
+    if(loaded_section == 2)
+        return;
+    loaded_section = 2;
+
     clearNavbar();
     skillsl.style.backgroundColor = "#557a4c";
     skillsl.style.color = "#CE796B";
+
+    setTimeout(() => {
+        if(loaded_section == 2)
+            history.pushState(null, "Nosehad's Skills", "?skills");
+    },400);
 }
 
-let load_projects = () =>
+let load_projects = (silent = false) =>
 {
+    if(loaded_section == 3)
+        return;
+    loaded_section = 3;
+
     clearNavbar();
     projectsl.style.backgroundColor = "#557a4c"; 
     projectsl.style.color = "#C18C5D";
+
+    setTimeout(() => {
+        if(loaded_section == 3)
+            history.pushState(null, "Nosehad's Projects", "?projects");
+    },400);
 }
 
-let load_contact = () =>
+let load_contact = (silent = false) =>
 {
+    if(loaded_section == 4)
+        return;
+    loaded_section = 4;
+
     head.style.color = "#fff";
     homel.style.color = "#fff";
     homel.style.backgroundColor = "transparent";
@@ -160,6 +178,11 @@ let load_contact = () =>
     projectsl.style.backgroundColor = "transparent";
     contactl.style.color = "#495867";
     contactl.style.backgroundColor = "#557a4c";
+
+    setTimeout(() => {
+        if(loaded_section == 4)
+            history.pushState(null, "Contact Nosehad", "?contact");
+    },400);
 }
 
 let s_home = () =>
@@ -201,3 +224,36 @@ let clearNavbar = () =>
     contactl.style.color = "#0A0908";
     contactl.style.backgroundColor = "transparent";
 }
+
+// setup "router"
+let load_page = () => {
+    let query = window.location.search.replace('?', '');
+    console.log(query);
+    if (window.location.search.includes('?')) {
+        switch (query) {
+            case "home":
+                s_home();
+                break;
+            case "about":
+                s_about();
+                break;
+            case "skills":
+                s_skills();
+                break;
+            case "projects":
+                s_projects();
+                break;
+            case "contact":
+                s_contact();
+                break;
+            default:
+                s_home();
+                break;
+        }
+    }
+    else
+        load_home();
+}
+load_page();
+// next and previous button of browser
+addEventListener('popstate', (event) => setTimeout(() => load_page(), 100));
