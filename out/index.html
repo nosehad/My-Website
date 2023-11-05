@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<html id="html">
+ <head>
+  <title>nosehad.com</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,
+   user-scalable=no" />
+  <link rel="icon" type="image/png" href="itznosehad_logo.png">
+  <style>
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+}
+html::-webkit-scrollbar{ display:none; }
+html::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+body {
+    background: #fff;
+    color: #2a3039;
+    position: relative;
+}
+.content
+{
+    max-width: 960px;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+section
+{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.home
+{
+    background-color: #FBFBF2;
+    color: #2a3039;
+    z-index: 0;
+}
+.about
+{
+    background-color: #E5E6E4;
+    color: #2a3039;
+    z-index: 1;
+}
+.skills
+{
+    background-color: #CFD2CD;
+    color: #2a3039;
+    z-index: 2;
+}
+.projects
+{
+    background-color: #A6A2A2;
+    color: #2a3039;
+    z-index: 3;
+}
+.contact
+{
+    background-color: #847577;
+    color: #fff;
+    height: 105%;
+    z-index: 4;
+}
+h1
+{
+    margin: 0px;
+    margin-bottom: 8px;
+    font-size: 35px;
+}
+strong
+{
+    font-weight: bolder;
+    color: #d5005a;
+}
+nav
+{
+    margin-right: auto;
+}
+logo
+{
+    font-size: 28px;
+    margin-left:auto;
+}
+.head-wrap
+{
+    z-index: 5;
+    position: fixed;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 95%;
+    max-width: 960px;
+    font-size: 18px;
+    font-weight: 600;
+}
+header
+{
+    display: flex;
+    padding:20px;
+}
+el
+{
+    border: 2px solid transparent;
+    user-select: none;
+    cursor: pointer;
+    padding: 19px;
+    padding-top: 11px;
+    font-size: 16px;
+    border-radius: 8px;
+    padding-bottom: 11px;
+    transition: padding 0.5s ease-out;
+}
+el:hover {
+    border: 2px solid #d5005a;
+}
+.bounce-arr {
+    animation-name: bounce;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    margin-top: 55px;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    40% {
+      -moz-transform: translateY(-30px);
+      -ms-transform: translateY(-30px);
+      -webkit-transform: translateY(-30px);
+      transform: translateY(-30px);
+    }
+    60% {
+      -moz-transform: translateY(-15px);
+      -ms-transform: translateY(-15px);
+      -webkit-transform: translateY(-15px);
+      transform: translateY(-15px);
+    }
+}
+@keyframes scrollUp {
+    0% {
+      padding-right: 0px;
+      padding-left: 38px;
+    }
+    100% {
+    }
+  }
+  @keyframes scrollDown {
+    0% {
+      padding-left: 0px;
+      padding-right: 38px;
+    }
+    100% {
+    }
+  }
+  </style>
+ </head>
+ <body id="body">
+  <div class="head-wrap">
+   <header id="head">
+    <nav>
+     <el onclick="s_home()" id="homel" style="color: #FBFBF2;
+     background-color: #d5005a;">Home</el>
+     <el onclick="s_about()" id="aboutl">About</el>
+     <el onclick="s_skills()" id="skillsl">Skills</el>
+     <el onclick="s_projects()" id="projectsl">Projects</el>
+     <el onclick="s_contact()" id="contactl">Contact</el>
+    </nav>
+    <logo>
+     Noah Nagel
+    </logo>
+   </header>
+  </div>
+  <section class="home" id="home">
+   <div class="content">
+    <div class="head">
+     <h1><strong>Noah Nagel</strong></h1>
+     <h1>Performance Developer</h1>
+    </div>
+    <svg onclick="s_about()" xmlns="http://www.w3.org/2000/svg" fill="#2a3039" class="bounce-arr" viewBox="0 0 16 16">
+     <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path>
+     <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path>
+      </svg>
+      </div>
+  </section>
+  <section class="about" id="about">
+   <div class="content">
+    <h1>About me</h1>
+   </div>
+  </section>
+  <section class="skills" id="skills">
+   <div class="content">
+    <h1>My Skills</h1>
+    <div class="skills-wrap">
+     <div id="skills-description">
+     </div>
+     <div id="skills-bars">
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="projects" id="projects">
+   <div class="content">
+    <h1>My Projects</h1>
+   </div>
+  </section>
+  <section class="contact" id="contact">
+   <div class="content">
+    <h1>Contact Me</h1>
+   </div>
+  </section>
+  <script type="text/javascript">
+const centered = document.querySelectorAll(".center");
+for (let i = 0; i < centered.length; i++) {
+  centered[i].style.marginTop = `${(centered[i].parentElement.offsetHeight/2)-(centered[i].offsetHeight/2)}px`;
+}
+let head = document.getElementById('head');
+let home = document.getElementById('home');
+let about = document.getElementById('about');
+let skills = document.getElementById('skills');
+let projects = document.getElementById('projects');
+let contact = document.getElementById('contact');
+let homel = document.getElementById('homel');
+let aboutl = document.getElementById('aboutl');
+let skillsl = document.getElementById('skillsl');
+let projectsl = document.getElementById('projectsl');
+let contactl = document.getElementById('contactl');
+const body_sections = document.querySelectorAll('section');
+let sectionHeight = window.innerHeight * 0.50;
+let currentSection = 0;
+let scrolling = false;
+let currentScroll = 0;
+let oldScroll = 0;
+let direction = false;
+let loaded_section = 0;
+window.addEventListener('scroll', () => makeParalax());
+window.addEventListener("keydown", function (e) {
+    if (e.code === "Space") {
+        if (currentSection != 4)
+            currentSection++;
+        switch (currentSection) {
+            case 0:
+                s_home();
+                break;
+            case 1:
+                s_about();
+                break;
+            case 2:
+                s_skills();
+                break;
+            case 3:
+                s_projects();
+                break;
+            case 4:
+                s_contact();
+                break;
+        }
+        e.preventDefault();
+    }
+});
+async function makeParalax() {
+    if (!scrolling) {
+        let scrollToY;
+        if (window.scrollY < (currentScroll)) {
+            scrollToY = sectionHeight * (currentSection-- - 1);
+            console.log(currentScroll + " < " + window.scrollY)
+        }
+        else if (window.scrollY > (currentScroll)) {
+            scrollToY = sectionHeight * (currentSection++ + 1);
+            console.log(currentScroll + " > " + window.scrollY)
+    }
+        else
+            return;
+        console.log("setting currentScroll to " + window.scrollY);
+        currentScroll = window.scrollY;
+        makeScroll(scrollToY);
+        return;
+    }
+    currentScroll = window.scrollY;
+    requestAnimationFrame(() => {
+    currentSection = Math.floor(window.scrollY / sectionHeight);
+    switch (currentSection) {
+        case 0:
+            load_home();
+            break;
+        case 1:
+            load_about();
+            break;
+        case 2:
+            load_skills();
+            break;
+        case 3:
+            load_projects();
+            break;
+        case 4:
+            load_contact();
+            break;
+    }
+    parallax();
+});
+}
+function makeScroll(scrollToY) {
+    if (scrolling)
+        return;
+    if(currentScroll < scrollToY)
+        direction = true;
+    else
+        direction = false;
+    document.body.style.overflowY = "hidden";
+    console.log("makescroll:" + scrollToY);
+    scrolling = true;
+    scroll(0, scrollToY);
+    setTimeout(() => {
+        document.body.style.overflowY = "scroll";
+        scrolling = false;
+    }, 2000);
+}
+let parallax = () => {
+    about.style.transform = `translateY(${-(window.scrollY)}px)`;
+    skills.style.transform = `translateY(${-(window.scrollY)}px)`;
+    projects.style.transform = `translateY(${-(window.scrollY)}px)`;
+    contact.style.transform = `translateY(${-(window.scrollY)}px)`;
+    return;
+}
+let load_home = () => {
+    if (loaded_section == 0)
+        return;
+    loaded_section = 0;
+    clearNavbar();
+    homel.style.backgroundColor = "#d5005a";
+    homel.style.color = "#FBFBF2";
+    console.log("loading home: " + direction);
+    homel.style.animation = "scrollDown 0.4s ease-out";
+    setTimeout(() => {
+        if (loaded_section == 0)
+            history.pushState(null, "Home", "/home");
+    }, 400);
+}
+let load_about = () => {
+    if (loaded_section == 1)
+        return;
+    loaded_section = 1;
+    clearNavbar();
+    aboutl.style.backgroundColor = "#d5005a";
+    aboutl.style.color = "#E5E6E4";
+    aboutl.style.animation = (direction ? "scrollUp" : "scrollDown") + " 0.4s ease-out";
+    homel.style.animation = "";
+    setTimeout(() => {
+        if (loaded_section == 1)
+            history.pushState(null, "about Nosehad", "/about");
+    }, 400);
+}
+let load_skills = () => {
+    if (loaded_section == 2)
+        return;
+    loaded_section = 2;
+    clearNavbar();
+    skillsl.style.backgroundColor = "#d5005a";
+    skillsl.style.color = "#CFD2CD";
+    skillsl.style.animation = (direction ? "scrollUp" : "scrollDown") + " 0.4s ease-out";
+    setTimeout(() => {
+        if (loaded_section == 2)
+            history.pushState(null, "Nosehad's Skills", "/skills");
+    }, 400);
+}
+let load_projects = () => {
+    if (loaded_section == 3)
+        return;
+    loaded_section = 3;
+    clearNavbar();
+    projectsl.style.backgroundColor = "#d5005a";
+    projectsl.style.color = "#A6A2A2";
+    projectsl.style.animation = (direction ? "scrollUp" : "scrollDown") + " 0.4s ease-out";
+    contactl.style.animation = "";
+    setTimeout(() => {
+        if (loaded_section == 3)
+            history.pushState(null, "Nosehad's Projects", "/projects");
+    }, 400);
+}
+let load_contact = () => {
+    if (loaded_section == 4)
+        return;
+    loaded_section = 4;
+    head.style.color = "#fff";
+    homel.style.color = "#fff";
+    homel.style.backgroundColor = "transparent";
+    aboutl.style.color = "#fff";
+    aboutl.style.backgroundColor = "transparent";
+    skillsl.style.color = "#fff";
+    skillsl.style.backgroundColor = "transparent";
+    projectsl.style.color = "#fff";
+    projectsl.style.backgroundColor = "transparent";
+    contactl.style.color = "#847577";
+    contactl.style.backgroundColor = "#d5005a";
+    contactl.style.animation = "scrollUp 0.4s ease-out";
+    setTimeout(() => {
+        if (loaded_section == 4)
+            history.pushState(null, "Contact Nosehad", "/contact");
+    }, 400);
+}
+let s_home = () => {
+    makeScroll(0);
+}
+let s_about = () => {
+    makeScroll(sectionHeight * 1);
+}
+let s_skills = () => {
+    makeScroll(sectionHeight * 2);
+}
+let s_projects = () => {
+    makeScroll(sectionHeight * 3);
+}
+let s_contact = () => {
+    makeScroll(sectionHeight * 4);
+}
+let clearNavbar = () => {
+    head.style.color = "#2a3039";
+    homel.style.color = "#2a3039";
+    homel.style.backgroundColor = "transparent";
+    aboutl.style.color = "#2a3039";
+    aboutl.style.backgroundColor = "transparent";
+    skillsl.style.color = "#2a3039";
+    skillsl.style.backgroundColor = "transparent";
+    projectsl.style.color = "#2a3039";
+    projectsl.style.backgroundColor = "transparent";
+    contactl.style.color = "#2a3039";
+    contactl.style.backgroundColor = "transparent";
+}
+let load_page = () => {
+    let query = window.location.search.replace('/', '');
+    console.log(query);
+    if (window.location.search.includes('/')) {
+        switch (query) {
+            case "home":
+                s_home();
+                break;
+            case "about":
+                s_about();
+                break;
+            case "skills":
+                s_skills();
+                break;
+            case "projects":
+                s_projects();
+                break;
+            case "contact":
+                s_contact();
+                break;
+            default:
+                s_home();
+                break;
+        }
+    }
+    else
+        load_home();
+}
+load_page();
+addEventListener('popstate', (event) => setTimeout(() => load_page(), 100));
+  </script>
+ </body>
+</html>

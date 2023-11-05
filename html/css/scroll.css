@@ -1,0 +1,17 @@
+@keyframes scrollUp {
+    0% {
+      padding-right: 0px; /* Start from the right */
+      padding-left: 38px;
+    }
+    100% {
+    }
+  }
+
+  @keyframes scrollDown {
+    0% {
+      padding-left: 0px; /* Start from the right */
+      padding-right: 38px; 
+    }
+    100% {
+    }
+  }
