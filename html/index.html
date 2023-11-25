@@ -1,76 +1,135 @@
+#include "svgs.h"
+
 <!DOCTYPE HTML>
 <html id="html">
-	<head>
-		<title>nosehad.com</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1,
+
+<head>
+	<title>nosehad.com</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,
 			user-scalable=no" />
-		<link rel="icon" type="image/png" href="itznosehad_logo.png">
-		<style>
-			#include "./css/index.css"
-		</style>
-	</head>
-	<body id="body">
-		<div class="head-wrap">
-			<header id="head">
-				<nav>
-					<el onclick="s_home()" id="homel" style="color: #FBFBF2;
-					background-color: #d5005a;">Home</el>
-					<el onclick="s_about()" id="aboutl">About</el>
-					<el onclick="s_skills()" id="skillsl">Skills</el>
-					<el onclick="s_projects()" id="projectsl">Projects</el>
-					<el onclick="s_contact()" id="contactl">Contact</el>
-				</nav>
-				<logo>
-					Noah Nagel
-				</logo>
-			</header>
+	<link rel="icon" type="image/png" href="itznosehad_logo.png">
+	<style>
+		#include "./css/index.css"
+	</style>
+</head>
+
+<body id="body">
+	<div class="head-wrap">
+		<header id="head">
+			<nav>
+				<el onclick="s_home()" id="homel" style="color: #9FA4C4;">Home</el>
+				<el onclick="s_about()" id="aboutl">About</el>
+				<el onclick="s_skills()" id="skillsl">Skills</el>
+				<el onclick="s_projects()" id="projectsl">Projects</el>
+				<el onclick="s_contact()" id="contactl">Contact</el>
+				<el class="el-holder" id="el-background"></el>
+			</nav>
+			<logo>
+				Noah Nagel
+			</logo>
+		</header>
+	</div>
+	<section class="home" id="home">
+		<div class="content" style="text-align: left;">
+			<div class="head">
+				<h1><strong>Noah Nagel</strong></h1>
+				<h1>Performance Developer</h1>
+			</div>
+			<svg onclick="s_about()" xmlns="http://www.w3.org/2000/svg" fill="#2a3039" class="bounce-arr"
+				viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z">
+				</path>
+				<path fill-rule="evenodd"
+					d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z">
+				</path>
+			</svg>
 		</div>
-		<section class="home" id="home">
-			<div class="content">
-				<div class="head">
-					<h1><strong>Noah Nagel</strong></h1>
-					<h1>Performance Developer</h1>
+	</section>
+	<section class="about" id="about">
+		<div class="content">
+			<h1>About me</h1>
+		</div>
+	</section>
+	<section class="skills" id="skills">
+		<div class="content">
+			<h1>My Skills</h1>
+			<div class="skills-wrap">
+				<div id="skills-description">
+					<h2>FRONTEND_SVG Frontend</h2>
+					<p>I have experience building websites using CSS3, Html5 and Javascript. Furthermore I have experience using Bootstrap and the Affinity Designer Suite.</p>
+					<h2>BACKEND_SVG Backend</h2>
+					<p>After plugin programming in Java, server programming using Flask, low level programming using C and playing around with PHP, I am able to create any solution in any language.</p>
+					<h2>PERFORMANCE_SVG Performance</h2>
+					<p>I have noticed early how important it is to achieve maximal performance, espacially in the backend sector. For that I have created my own data structure and data base algorithms, to maximize performance in my software.</p>	
 				</div>
-				<svg onclick="s_about()" xmlns="http://www.w3.org/2000/svg" fill="#2a3039" class="bounce-arr" viewBox="0 0 16 16">
-					<path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path>
-					<path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path>
-				  </svg>
-			   </div>
-		</section>
-		<section class="about" id="about">
-			<div class="content">
-				<h1>About me</h1>
-			</div>
-		</section>
-		<section class="skills" id="skills">
-			<div class="content">
-				<h1>My Skills</h1>
-				<div class="skills-wrap">
-					<div id="skills-description">
-					</div>
-					<div id="skills-bars">
+				<div id="skills-bars">
 
-					</div>
 				</div>
 			</div>
-		</section>
-		<section class="projects" id="projects">
-			<div class="content">
-				<h1>My Projects</h1>
+		</div>
+	</section>
+	<section class="projects" id="projects">
+		<div class="content">
+			<h1>My Projects</h1>
+		</div>
+	</section>
+	<section class="contact" id="contact">
+		<div class="content" style="text-align: left;">
+			<h1><strong>Contact me</strong></h1>
+			<div class="mb-3" style="display: flex; margin-top: 50px;">
+				<div style="text-align: left; width: 47.5%;">
+					<p>Your Name</p>
+					<input type="email" placeholder="Sheridan Grier">
+				</div>
+				<div style="width: 5%;"></div>
+				<div style="text-align: left; width: 47.5%;">
+					<p>Your EMail</p>
+					<input type="email" placeholder="name@nosehad.com">
+				</div>
 			</div>
-		</section>
-		<section class="contact" id="contact">
-			<div class="content">
-				<h1>Contact Me</h1>
-
+			<div class="mb-3" style="text-align: left;">
+				<p>Your Message</p>
+				<textarea class="input-text" rows="3" placeholder="You officially have the worst portfolio I have ever seen."></textarea>
 			</div>
-		</section>
+			<div class="mb-3" style="text-align: left;">
+				<p>The data you enter on this website <strong>will</strong> be passed on to third parties.</p>
+				<button class="bs-button">Submit</button>
+			</div>
+		</div>
+		<div class="footer" id="footer">
+			<h2 style="font-size: 16px;">© 2022 Copyright: nosehad.com</h2>
+			<div class="socials">
+				<!-- Discord -->
+				<svg class="social-link" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord"
+					viewBox="0 0 16 16">
+					<path
+						d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
+				</svg>
 
-		<script type="text/javascript">
-			#include "./js/index.js"
-			#include "./js/scroll.js"
-		</script>
+				<!-- Github -->
+				<svg class="social-link"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+					viewBox="0 0 16 16">
+					<path
+						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+				</svg>
 
-	</body>
+				<!-- Twitter -->
+				<svg class="social-link"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-twitter-x" viewBox="0 0 16 16">
+					<path
+						d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+				</svg>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+		#include "./js/index.js"
+		#include "./js/scroll.js"
+	</script>
+
+</body>
+
 </html>

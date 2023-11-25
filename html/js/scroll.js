@@ -13,6 +13,10 @@ let skillsl = document.getElementById('skillsl');
 let projectsl = document.getElementById('projectsl');
 let contactl = document.getElementById('contactl');
 
+const links = [homel, aboutl, skillsl, projectsl, contactl];
+const DEFAULT_MARGIN = [20, 110, 200, 286, 392];
+const holder = document.getElementById("el-background");
+
 const body_sections = document.querySelectorAll('section');
 
 let sectionHeight = window.innerHeight * 0.50;
@@ -50,7 +54,7 @@ window.addEventListener("keydown", function (e) {
                 s_contact();
                 break;
         }
-        e.preventDefault();
+        //e.preventDefault(); /* dont prevent default hence input fields wouldnt work */
     }
 });
 
@@ -64,7 +68,7 @@ async function makeParalax() {
         else if (window.scrollY > (currentScroll)) {
             scrollToY = sectionHeight * (currentSection++ + 1);
             console.log(currentScroll + " > " + window.scrollY)
-    }
+        }
         else
             return;
         console.log("setting currentScroll to " + window.scrollY);
@@ -74,7 +78,6 @@ async function makeParalax() {
     }
     currentScroll = window.scrollY;
 
-    requestAnimationFrame(() => {
     currentSection = Math.floor(window.scrollY / sectionHeight);
     switch (currentSection) {
         case 0:
@@ -94,13 +97,12 @@ async function makeParalax() {
             break;
     }
     parallax();
-});
 }
 
 function makeScroll(scrollToY) {
     if (scrolling)
         return;
-    if(currentScroll < scrollToY)
+    if (currentScroll < scrollToY)
         direction = true; /* up */
     else
         direction = false; /* down */
@@ -112,7 +114,7 @@ function makeScroll(scrollToY) {
     setTimeout(() => {
         document.body.style.overflowY = "scroll";
         scrolling = false;
-    }, 2000);
+    }, 800);
 }
 
 let parallax = () => {
@@ -124,14 +126,19 @@ let parallax = () => {
     return;
 }
 
+let moveHolder = (section) => {
+    holder.style.width = `${links[section].offsetWidth - 38/* padding */ /*border*/}px`;
+    holder.style.marginLeft = `${DEFAULT_MARGIN[section]}px`;
+}
+
 let load_home = () => {
     if (loaded_section == 0)
         return;
     loaded_section = 0;
 
     clearNavbar();
-    homel.style.backgroundColor = "#d5005a";
-    homel.style.color = "#FBFBF2";
+    moveHolder(loaded_section);
+    homel.style.color = "#9FA4C4";
     console.log("loading home: " + direction);
     homel.style.animation = "scrollDown 0.4s ease-out";
 
@@ -147,8 +154,8 @@ let load_about = () => {
     loaded_section = 1;
 
     clearNavbar();
-    aboutl.style.backgroundColor = "#d5005a";
-    aboutl.style.color = "#E5E6E4";
+    moveHolder(loaded_section);
+    aboutl.style.color = "#6C464F";
     aboutl.style.animation = (direction ? "scrollUp" : "scrollDown") + " 0.4s ease-out";
     homel.style.animation = ""; /* reset home animation */
 
@@ -164,8 +171,8 @@ let load_skills = () => {
     loaded_section = 2;
 
     clearNavbar();
-    skillsl.style.backgroundColor = "#d5005a";
-    skillsl.style.color = "#CFD2CD";
+    moveHolder(loaded_section);
+    skillsl.style.color = "#B8C5D6";
     skillsl.style.animation = (direction ? "scrollUp" : "scrollDown") + " 0.4s ease-out";
 
     setTimeout(() => {
@@ -180,8 +187,8 @@ let load_projects = () => {
     loaded_section = 3;
 
     clearNavbar();
-    projectsl.style.backgroundColor = "#d5005a";
-    projectsl.style.color = "#A6A2A2";
+    moveHolder(loaded_section);
+    projectsl.style.color = "#95B8D1";
     projectsl.style.animation = (direction ? "scrollUp" : "scrollDown") + " 0.4s ease-out";
 
     contactl.style.animation = "";
@@ -192,24 +199,29 @@ let load_projects = () => {
     }, 400);
 }
 
+let contact_loaded = false;
 let load_contact = () => {
     if (loaded_section == 4)
         return;
     loaded_section = 4;
 
-    head.style.color = "#fff";
-    homel.style.color = "#fff";
+    head.style.color = "#FCFCFC";
+    homel.style.color = "#FCFCFC";
     homel.style.backgroundColor = "transparent";
-    aboutl.style.color = "#fff";
+    aboutl.style.color = "#FCFCFC";
     aboutl.style.backgroundColor = "transparent";
-    skillsl.style.color = "#fff";
+    skillsl.style.color = "#FCFCFC";
     skillsl.style.backgroundColor = "transparent";
-    projectsl.style.color = "#fff";
+    projectsl.style.color = "#FCFCFC";
     projectsl.style.backgroundColor = "transparent";
-    contactl.style.color = "#847577";
-    contactl.style.backgroundColor = "#d5005a";
-    contactl.style.animation = "scrollUp 0.4s ease-out"; /* only scroll down is possible since it is the last section */ 
-
+    contactl.style.color = "#272D2D";
+    moveHolder(loaded_section);
+    contactl.style.animation = "scrollUp 0.4s ease-out"; /* only scroll down is possible since it is the last section */
+ 
+    if(!contact_loaded) {
+        document.getElementById('footer').style.bottom = "0px";
+        contact_loaded = true;
+    }
 
     setTimeout(() => {
         if (loaded_section == 4)
