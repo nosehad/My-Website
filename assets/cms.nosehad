@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="cms-dynamic-header">
+    <script type="text/javascript">
+let cms_pages = C_PRELOAD_CONST_PAGES;
+let cms_ov_responseText;
+let cms_ov_modifyer;
+let cms_init_body;
+let cms_current_location;
+let cms_document_cache = new Map();
+let cms_startup_cache = new Map();
+let cms_loaded_scripts = new Map();
+let cms_queries;
+function cms_getPageFile(route) {
+    const page = cms_pages.find((page) => page['route'] === route);
+    if (page) {
+        page['pre_load_scripts'].forEach(script => {
+            cms_loadScript(script);
+        });
+        return page['static'];
+    }
+    return "/static/404.nosehad";
+}
+function cms_loadScript(uri) {
+    if (cms_loaded_scripts.get(uri))
+        return;
+    cms_loaded_scripts.set(uri, true);
+    let scriptElement = document.createElement('script');
+    scriptElement.src = uri;
+    scriptElement.setAttribute("charset", 'UTF-8');
+    document.head.appendChild(scriptElement);
+}
+function cms_runOnStartup(func) {
+    let startup_handlers = cms_startup_cache.get(cms_current_location);
+    if (startup_handlers == undefined) {
+        startup_handlers = new Set();
+        cms_startup_cache.set(cms_current_location, startup_handlers);
+    }
+    startup_handlers.add(func);
+    func();
+}
+function cms_pushContent() {
+    if (cms_init_body == undefined)
+        cms_init_body = document.body.cloneNode(true);
+    cms_ov_modifyer = () => {
+        console.log("setup overlay");
+        head_nodes = new Set();
+        [...document.head.querySelectorAll('link, script, style')]
+        .forEach(el => head_nodes.add(el.cloneNode(true)));
+        document.open();
+        document.write(cms_ov_responseText);
+        head_nodes.forEach((old) => {
+            document.head.appendChild(old)
+        });
+        const overlay = document.createElement('div');
+        overlay.classList.add('loader-overlay');
+        document.body.insertAdjacentElement("afterbegin", overlay);
+        window.addEventListener('popstate', function (event) {
+            redirect(window.location.pathname, true, false);
+        });
+        if (cms_document_cache.get(cms_current_location) == undefined)
+            cms_document_cache.set(cms_current_location, cms_ov_responseText);
+        let handlers = cms_startup_cache.get(cms_current_location);
+        if (handlers != undefined) {
+            handlers.forEach(handler => {
+                handler();
+            });
+        }
+        cms_ov_modifyer = undefined;
+        cms_ov_responseText = undefined;
+    }
+    if (cms_ov_responseText != undefined)
+        cms_ov_modifyer();
+}
+function cms_getAndPopQueryValue(queryKey) {
+    const value = cms_queries.get(queryKey)
+    if(value != undefined)
+        cms_queries.delete(queryKey);
+    return value;
+}
+function redirect(rlocation, r = true , ps = true , params ) {
+    if (r)
+        document.documentElement.replaceWith(cms_init_body);
+    if (ps)
+        history.pushState(null, '', rlocation);
+    if(params != undefined)
+        cms_queries.set(params[0], params[1])
+    cms_current_location = rlocation;
+    document.addEventListener('animationend', (event) => {
+        if (event.animationName == "content-fade") {
+            cms_pushContent()
+        }
+    });
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            cms_ov_responseText = xhttp.responseText;
+            if (cms_ov_modifyer != undefined)
+                cms_ov_modifyer();
+        }
+    }
+    cms_ov_responseText = cms_document_cache.get(rlocation);
+    if (cms_ov_responseText != undefined)
+        return;
+    xhttp.open("GET", cms_getPageFile(rlocation), true);
+    xhttp.send();
+}
+const queryString = window.location.search;
+if(cms_queries == undefined)
+    cms_queries = new URLSearchParams(queryString);
+redirect(window.location.pathname, false);
+    </script>
+    <style>
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 700;
+  src: url("/static/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Code";
+  src: url("/static/fonts/FiraCode-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Lora";
+  src: url("/static/fonts/Lora-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Istok";
+  src: url("/static/fonts/IstokWeb-Regular.ttf") format("truetype");
+}
+body {
+  font-family: "Istok", sans-serif;
+}
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 65px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+h2, h3,h4,h5,h6 {
+  font-family: "Lora";
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+@keyframes content-fade {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes content-fade-reverse {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
+}
+html,
+body {
+  background-color: PRIMARY_BG_2;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-weight: 400;
+  font-style: normal;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+html::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+.loader {
+  width: 100%;
+  height: 100%;
+  background-color: #ccd5ae;
+  animation-duration: 0.5s;
+  animation-name: content-fade;
+  animation-timing-function: ease-in;
+}
+.loader-overlay {
+  position: block;
+  width: 100%;
+  height: 0%;
+  background-color: #ccd5ae;
+  animation-duration: 1s;
+  animation-name: content-fade-reverse;
+  animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+}
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+</body>

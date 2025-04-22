@@ -1,0 +1,18 @@
+[
+    {
+        "route": "/",
+        "static": "/static/landing.nosehad",
+        "title": "nosehad.com",
+        "description": "A Portfolio in making",
+        "keywords": [
+            "nosehad",
+            "Noah",
+            "Nagel",
+            "Noah Nagel"
+        ],
+        "pre_load_scripts": [
+            "https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"
+        ],
+        "author": "Noah Nagel"
+    }
+]
