@@ -1,0 +1,7 @@
+#include "../colortheme.h"
+#include "fonts.css"
+
+body,
+html {
+  background-color: PRIMARY_BG_2;
+}

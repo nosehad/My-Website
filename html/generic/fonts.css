@@ -1,0 +1,42 @@
+/* font faces derived from https://fonts.google.com/ */
+
+@font-face {
+  font-family: "Montserrat"; /* header font */
+  font-weight: 700;
+  src: url("/static/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Code"; /* subtitle font */
+  src: url("/static/fonts/FiraCode-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lora"; /* subtitle font */
+  src: url("/static/fonts/Lora-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Istok"; /* body font */
+  src: url("/static/fonts/IstokWeb-Regular.ttf") format("truetype");
+}
+
+body {
+  font-family: "Istok", sans-serif;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 65px;
+
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+h2, h3,h4,h5,h6 {
+  font-family: "Lora";
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}

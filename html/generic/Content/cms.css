@@ -1,0 +1,59 @@
+#include "../../colortheme.h" 
+#include "../fonts.css" 
+
+@keyframes content-fade {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes content-fade-reverse {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
+}
+
+html,
+body {
+  background-color: PRIMARY_BG_2;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-weight: 400;
+  font-style: normal;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0px; /* remove scrollbar space */
+  background: transparent; /* optional: just make scrollbar invisible */
+}
+.loader {
+  width: 100%;
+  height: 100%;
+  background-color: SECTION_1_BG;
+  animation-duration: 0.5s; /* pop out after two seconds */
+  animation-name: content-fade;
+  animation-timing-function: ease-in;
+}
+
+.loader-overlay {
+  position: block;
+  width: 100%;
+  height: 0%;
+  background-color: SECTION_1_BG;
+  animation-duration: 1s; /* pop out after two seconds */
+  animation-name: content-fade-reverse;
+  animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+}
